@@ -12,13 +12,12 @@ function SideBar({ product }) {
       <button className="p-2 hover:bg-sky-600 hover:text-white border-y border-y-borderColor duration-200">
         <LuEye />
       </button>
+      <button className="p-2 hover:bg-sky-600 hover:text-white border-y border-y-borderColor duration-200">
+      <FaRegHeart size={20} />
+      </button>
    
 
-      {/* Wishlist */}
-      <button className="p-2  rounded-lg hover:bg-gray-100">
-        <FaRegHeart size={20} />
-      </button>
-
+     
       {/* <button
         // onClick={handleToggleFavorite} // Toggle favorite on click
         className='p-2 hover:bg-sky-600 hover:text-white duration-200'>

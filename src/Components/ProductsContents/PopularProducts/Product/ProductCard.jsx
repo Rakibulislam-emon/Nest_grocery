@@ -28,15 +28,15 @@ export default function ProductCard({ products }) {
       weight: "500g",
       expiry: "2024-12-15",
     },
+   
   ];
 
- 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
-      {productsData.map((product) => (
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6  ">
+      {productsData.map((product, idx) => (
         <div
-          key={product.id}
-          className="group  rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 "
+          key={idx}
+          className="group  rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 "
         >
           {/* Product image */}
           <div className="p-4 overflow-hidden hover:shadow-black/30 duration-200 rounded-md group relative">
@@ -62,7 +62,6 @@ export default function ProductCard({ products }) {
             </h3>
             <span className="text-sm text-gray-600">{product.category}</span>
             <div className="flex items-center gap-2">
-            
               <p className="text-sm text-gray-600">
                 ({product.ratings} ratings)
               </p>
@@ -82,7 +81,7 @@ export default function ProductCard({ products }) {
               Expiry Date: {product.expiry}
             </div>
           </div>
-          <QuantityControl/>
+          <QuantityControl />
         </div>
       ))}
     </div>

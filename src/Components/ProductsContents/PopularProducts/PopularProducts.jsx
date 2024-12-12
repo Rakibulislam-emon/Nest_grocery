@@ -3,7 +3,10 @@ import ProductCard from './Product/ProductCard'
 
 export default function PopularProducts() {
   return (
-    <div>
+    <div className=''>
+      <div>
+        <h2>Popular Products</h2>
+      </div>
       <ProductCard/>
     </div>
   )

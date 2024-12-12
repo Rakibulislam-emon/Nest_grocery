@@ -16,7 +16,7 @@ function FilterToggleButton() {
     const handleClickOutside = (event) => {
       if (
         isOpen && // Only handle if the filter is open
-        filterRef.current && 
+        filterRef.current &&
         !filterRef.current.contains(event.target)
       ) {
         setIsOpen(false);
@@ -31,27 +31,38 @@ function FilterToggleButton() {
 
   return (
     <div className="">
-      {/* Toggle button visible only on small screens */}
-      <div className="flex justify-end">
+      {/* Toggle button */}
+      <div className="flex justify-end lg:fixed left-0 top-[50vh]">
         <div
           onClick={toggleFilter}
-          className="border p-4 bg-black text-white cursor-pointer sm:block lg:hidden flex gap-x-2 w-32 justify-center"
+          className="border p-4 bg-black text-white cursor-pointer sm:block flex gap-x-2 w-32 lg:w-20 lg:rounded-r-3xl justify-center"
         >
-          <span>Filter</span>
+          <span className="text-center ">Click To Filter</span>
           <BiFilterAlt className="text-2xl" />
         </div>
       </div>
 
       {/* Filter content */}
-      <div
-        ref={filterRef}
-        className={`fixed top-0 right-0 h-full lg:w-80 w-64 bg-white shadow-lg z-[110] transform transition-transform duration-300 ease-in-out overflow-y-auto ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } sm:static sm:translate-x-0 lg:block`}
-      >
-        {/* The filter will always show on lg screens */}
-        <Filter setIsOpen={setIsOpen}/>
-      </div>
+      {isOpen && (
+        <div
+          ref={filterRef}
+          className="fixed top-0  lg:left-0 right-0 h-full   lg:w-80 w-64 bg-white shadow-lg z-[110] transform transition-transform duration-300 ease-in-out overflow-y-auto"
+        >
+          <Filter setIsOpen={setIsOpen} />
+          <div
+          className="h-1/4"
+            style={{
+              backgroundImage: "url('/filter/bg.avif')",
+              backgroundSize: "cover",
+              backgroundPosition: "bottom",
+              backgroundRepeat: "no-repeat",
+              
+            }}
+          >
+        
+          </div>
+        </div>
+      )}
     </div>
   );
 }

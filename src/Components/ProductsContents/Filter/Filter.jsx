@@ -8,7 +8,7 @@ export default function Filter({
   maxPrice,
   specialOffer,
   setSortOrder,
-  setIsOpen
+  setIsOpen,
 }) {
   return (
     <div className="p-4   rounded-lg shadow-lg">
@@ -171,9 +171,15 @@ export default function Filter({
       </div>
 
       {/* Filter Button */}
-      <button 
-      onClick={() => setIsOpen(false)}
-      className="w-full flex items-center justify-center border border-green-600 text-green-600 py-2 rounded-full hover:bg-green-700 hover:text-green transition-all">
+      <button
+        onClick={() => {
+          if (window.innerWidth < 1024) {
+            // `lg` breakpoint is 1024px in Tailwind
+            setIsOpen(false);
+          }
+        }}
+        className="w-full flex items-center justify-center border border-green-600 text-green-600 py-2 rounded-full hover:bg-green-700 hover:text-green transition-all"
+      >
         <FaFilterCircleDollar className="text-base mr-2" />
         Filter
       </button>
